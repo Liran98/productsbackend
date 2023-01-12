@@ -54,7 +54,7 @@ app.use((error, req, res, next) => {
 
 
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster619.ys18umm.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster619.ys18umm.mongodb.net/product_project?retryWrites=true&w=majority`)
 
   .then(() => {
     app.listen(process.env.PORT|| 5000, console.log(`connecting to localhost ${process.env.PORT} database working !!!`));
