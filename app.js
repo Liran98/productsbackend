@@ -40,7 +40,7 @@ app.use('/api/products', productsRoute);
 
 
 app.use((error, req, res, next) => {
-  if (req.file) {
+    if (req.file) {
     fs.unlink(req.file.path, (err) => {
       console.log(err);
     });
@@ -52,12 +52,22 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
 
+const user = process.env.DB_USER;
+const pass = process.env.DB_PASS;
+const dbname = process.env.DB_NAME;
+const port = process.env.PORT;
+const cluster = process.env.DB_CLUSTER;
 
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster619.ys18umm.mongodb.net/product_project?retryWrites=true&w=majority`)
+
+
+
+
+
+mongoose.connect(`mongodb+srv://${user}:${pass}@${cluster}.ys18umm.mongodb.net/${dbname}?retryWrites=true&w=majority`)
 
   .then(() => {
-    app.listen(process.env.PORT|| 5000, console.log(`connecting to localhost ${process.env.PORT} database working !!!`));
+    app.listen(port || 5000, console.log(`connecting to localhost ${port} database working !!!`));
   })
   .catch(err => {
     console.log(err);
