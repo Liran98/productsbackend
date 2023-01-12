@@ -56,7 +56,7 @@ const user = process.env.DB_USER;
 const pass = process.env.DB_PASS;
 const dbname = process.env.DB_NAME;
 const cluster = process.env.DB_CLUSTER;
-
+const theport =process.env.PORT
 
 
 
@@ -66,7 +66,7 @@ const cluster = process.env.DB_CLUSTER;
 mongoose.connect(`mongodb+srv://${user}:${pass}@${cluster}.ys18umm.mongodb.net/${dbname}?retryWrites=true&w=majority`)
 
   .then(() => {
-    app.listen(process.env.PORT|| 5000, console.log(`connecting to  database working !!!`));
+    app.listen(theport|| 5000, console.log(`connecting to  database working !!!`));
   })
   .catch(err => {
     console.log(err);
