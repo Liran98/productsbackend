@@ -28,7 +28,7 @@ async function addProduct(req, res, next) {
         product,
         price,
         description,
-        image:req.file.path,
+        // image:req.file.path,
         owner
     });
 
@@ -79,7 +79,7 @@ async function deleteProduct(req, res, next) {
 
     let products = await Product.findById(productId).populate('owner');
 
-    const imagepath = products.image;
+    // const imagepath = products.image;
 
     const sess = await mongoose.startSession();
     sess.startTransaction();
@@ -89,9 +89,9 @@ async function deleteProduct(req, res, next) {
     await sess.commitTransaction();
 
 
-    fs.unlink(imagepath ,err => {
-        console.log("deleting image");
-      });                   //deletion in productitems.jsx
+    // fs.unlink(imagepath ,err => {
+    //     console.log("deleting image");
+    //   });                   //deletion in productitems.jsx
       res.status(200).json({ message: 'Deleted product.' });
 };
 

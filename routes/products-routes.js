@@ -4,7 +4,7 @@ const {check} = require('express-validator');
 
 const productcontroller = require('../controllers/products-controllers');
 
-const fileUpload = require('../middleware/file-uploads');
+// const fileUpload = require('../middleware/file-uploads');
 
 const router = express.Router();
 
@@ -15,7 +15,7 @@ router.get('/user/:uid',productcontroller.getProductsbyUserId);
 
 
 router.post('/',
-fileUpload.single('image'),
+// fileUpload.single('image'),
 [
 check('product').notEmpty(),
 check('price').notEmpty(),

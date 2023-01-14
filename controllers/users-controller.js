@@ -46,7 +46,7 @@ async function signUp(req, res, next) {
         name,
         email,
         password: hashedpassword,
-        image: req.file.path,
+        // image: req.file.path,
         products: []
     });
 
@@ -113,10 +113,10 @@ async function deleteUser(req, res, next) {
         return next(error);
     }
 
-    const imagepath = usertoDelete.image;
-    fs.unlink(imagepath, err => {
-        console.log("deleting image");
-    });                     //deletion in userItem.jsx
+    // const imagepath = usertoDelete.image;
+    // fs.unlink(imagepath, err => {
+    //     console.log("deleting image");
+    // });                     //deletion in userItem.jsx
     res.status(200).json({ message: 'deleted user successfully' });
 }
 
