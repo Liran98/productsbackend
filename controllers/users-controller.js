@@ -34,7 +34,7 @@ async function signUp(req, res, next) {
         return next(error);
     }
 
-    let hashedpassword = true; //added
+    let hashedpassword; //added
     try {
         hashedpassword = await bcrypt.hash(password, 12);
     } catch (err) {
