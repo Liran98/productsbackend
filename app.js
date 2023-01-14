@@ -56,7 +56,7 @@ const user = process.env.DB_USER;
 const pass = process.env.DB_PASS;
 const dbname = process.env.DB_NAME;
 const cluster = process.env.DB_CLUSTER;
-const theserver = process.env.DB_PORT
+const theserver = process.env.PORT
 
 
 
